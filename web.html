@@ -148,6 +148,20 @@
             box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.5);
         }
 
+        /* Audio Player Styling */
+        .audio-player {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        .audio-player audio {
+            width: 100%;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -168,8 +182,6 @@
     </style>
 </head>
 <body>
-    
-    
     <div class="container">
         <h1>CHRIST'S HEART KYEBANDO</h1>        
         <h2>ABOUT US</h2>
@@ -187,6 +199,14 @@
         <h2>OUR SERVICES ARE AVAILABLE FOR DOWNLOAD</h2>
         <p>Click the button below to download our latest service materials.</p>
         <a href="https://drive.google.com/drive/folders/1JotlObpiJVgERb_t-DrANIjoT9GbmIHl?usp=sharing" class="download-btn" target="_blank">Download</a>
+
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <audio controls>
+                <source src="https://drive.google.com/uc?export=download&id=YOUR_AUDIO_FILE_ID" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 </body>
 </html>
