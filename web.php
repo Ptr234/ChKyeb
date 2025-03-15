@@ -186,26 +186,61 @@
         <h1>CHRIST'S HEART KYEBANDO</h1>        
         <h2>ABOUT US</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://github.com/Ptr234/ChKyeb/blob/main/WhatsApp%20Image%202025-02-05%20at%2010.11.44_ecb5d128.jpg?raw=true" alt="About Us">
-                <div class="gallery-text">Christ's Heart Kyebando is dedicated to spreading the gospel and uplifting communities.</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://github.com/Ptr234/ChKyeb/blob/main/yt.jpg?raw=true" alt="Location">
-                <div class="gallery-text">We are located at Kyebando Kyerisa, Uganda. Join us every Sunday!</div>
-            </div>
+            <?php
+            // Fetch gallery images dynamically from a directory
+            $galleryImages = glob('images/gallery/*.{jpg,png,gif}', GLOB_BRACE);
+            foreach ($galleryImages as $image) {
+                echo '
+                <div class="gallery-item">
+                    <img src="' . $image . '" alt="Gallery Image">
+                    <div class="gallery-text">This is a dynamic gallery item.</div>
+                </div>';
+            }
+            ?>
         </div>
 
         <h2>OUR SERVICES ARE AVAILABLE FOR DOWNLOAD</h2>
         <p>Click the button below to download our latest service materials.</p>
         <a href="https://drive.google.com/drive/folders/1JotlObpiJVgERb_t-DrANIjoT9GbmIHl?usp=sharing" class="download-btn" target="_blank">Download</a>
 
-        <!-- Audio Player -->
+        <!-- Dynamic Audio Player -->
         <div class="audio-player">
-            <audio controls>
-                <source src="https://drive.google.com/uc?export=download&id=YOUR_AUDIO_FILE_ID" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+            <?php
+            // Option 1: Fetch audio files dynamically from a directory
+            $audioFiles = glob('audio/*.{mp3,ogg,wav}', GLOB_BRACE);
+            foreach ($audioFiles as $audio) {
+                echo '
+                <audio controls>
+                    <source src="' . $audio . '" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>';
+            }
+
+            // Option 2: Fetch audio files from a database (uncomment to use)
+            /*
+            $host = 'localhost';
+            $dbname = 'your_database_name';
+            $username = 'your_username';
+            $password = 'your_password';
+
+            try {
+                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                // Fetch audio files from the database
+                $stmt = $pdo->query("SELECT * FROM audio_files");
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo '
+                    <audio controls>
+                        <source src="' . $row['file_path'] . '" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>';
+                }
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+            */
+            ?>
         </div>
     </div>
 </body>
