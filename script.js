@@ -16,8 +16,6 @@
                 });
             }
 
-            // Example: Sanitize any user input fields (if applicable)
-            // let userInputField = document.getElementById("user-input");
-            // userInputField.value = sanitizeInput(userInputField.value);
+            
         });
     </script>
