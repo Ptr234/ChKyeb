@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://drive.google.com; font-src 'self' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'">
-    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://drive.google.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
 
-    <title>Sunday Service</title>
+    <title>Sunday Service - Christ's Heart Kyebando</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
     <style>
         * {
             margin: 0;
@@ -46,16 +45,9 @@
             transform: translateY(30px);
             animation: fadeInUp 1s forwards;
         }
-
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         h1, h2, p {
             opacity: 0;
@@ -142,27 +134,13 @@
             }
         }
     </style>
-    
-    <script>
-        function sanitizeInput(input) {
-            return input.replace(/[&<>"'/]/g, function(char) {
-                return {
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;',
-                    "/": '&#x2F;'
-                }[char];
-            });
-        }
-    </script>
 </head>
 <body>
 
     <div class="container">
         <h1>CHRIST'S HEART KYEBANDO</h1>        
         <h2>ABOUT US</h2>
+
         <div class="gallery">
             <div class="gallery-item">
                 <img src="https://raw.githubusercontent.com/Ptr234/ChKyeb/main/WhatsApp%20Image%202025-02-05%20at%2010.11.44_ecb5d128.jpg" alt="About Us">
@@ -178,6 +156,30 @@
         <p>Click the button below to download our latest service materials.</p>
         <a href="https://drive.google.com/drive/folders/1JotlObpiJVgERb_t-DrANIjoT9GbmIHl?usp=sharing" class="download-btn" target="_blank" rel="noopener noreferrer">Download</a>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Website Loaded Successfully");
+
+            // Function to sanitize user input to prevent XSS
+            function sanitizeInput(input) {
+                return input.replace(/[&<>"'/]/g, function(char) {
+                    return {
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        '"': '&quot;',
+                        "'": '&#39;',
+                        "/": '&#x2F;'
+                    }[char];
+                });
+            }
+
+            // Example: Sanitize any user input fields (if applicable)
+            // let userInputField = document.getElementById("user-input");
+            // userInputField.value = sanitizeInput(userInputField.value);
+        });
+    </script>
 
 </body>
 </html>
